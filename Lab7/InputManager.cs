@@ -48,17 +48,29 @@ namespace Lab7.IOManagers
 
         private static Material GetMaterial(JToken materialData)
         {
-            throw new System.NotImplementedException();
+            var dData = GetDispersionData(materialData["d_data"]);
+            var rData = GetRelaxationData(materialData["r_data"]);
+            return new Material(dData, rData);
         }
 
         private static DispersionData GetDispersionData(JToken dData)
         {
-            throw new System.NotImplementedException();
+            var WMaxLa = (double)dData["max_freq_la"];
+            var WMaxTa = (double)dData["max_freq_ta"];
+            var laData = dData["la_data"].ToObject<double[]>();
+            var taData = dData["ta_data"].ToObject<double[]>();
+            return new DispersionData(laData, WMaxLa, taData, WMaxTa);
         }
 
         private static RelaxationData GetRelaxationData(JToken rData)
         {
-            throw new System.NotImplementedException();
+            var Bl = (double)rData["Bl"];
+            var Btn = (double)rData["Btn"];
+            var Btu = (double)rData["Btu"];
+            var BI = (double)rData["BI"];
+            var W = (double)rData["W"];
+            return new RelaxationData(Bl, Btn, Btu, BI, W);
         }
+        
     }
 }
