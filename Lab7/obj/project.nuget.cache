@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jFchDJz7DqX4ta/83Fggr9+KgvhlTWdci7ihaydMVQRAPL3xJT51G349P712IaKf+YJ32mn/j3e4dCMlo0QU4A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DhruvDK\\Documents\\Cambrian\\IOT1026\\Repositories\\Lab7\\Lab7\\Lab7.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DhruvDK\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
