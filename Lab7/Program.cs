@@ -46,7 +46,8 @@ namespace Lab7
 
 			watch.Stop();
 			System.Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds / 1000} [s]");
-#else
+
+#else 
 
 			const string path = "../../../model.json";
 			Model model = InputManager.InitializeModel(path);

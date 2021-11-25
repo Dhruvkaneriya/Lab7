@@ -138,10 +138,5 @@ namespace Lab7.ModelComponents
 			EmitPhonons = (int)Math.Floor(emitPhonons);
 			EmitPhononsFrac = emitPhonons - EmitPhonons;
 		}
-
 	}
-
-
-
-
 }

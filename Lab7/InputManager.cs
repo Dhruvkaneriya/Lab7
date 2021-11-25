@@ -21,6 +21,7 @@ namespace Lab7.IOManagers
             AddCells(model, modelData["cells"]);
             return model;
         }
+
         private static JObject LoadJson(string path)
         {
             using (StreamReader r = new StreamReader(path))
@@ -33,17 +34,31 @@ namespace Lab7.IOManagers
 
         private static void AddCells(Model m, JToken cellData)
         {
-            throw new System.NotImplementedException();
+            var length = (double)cellData["length"];
+            var width = (double)cellData["width"];
+            var sensorID = (int)cellData["sensorID"];
+            for (int i = 0; i < sensorID; i++)
+            {
+                System.Console.WriteLine($"Successfully added a {length} * {width} cell to the model. The cell is linked to sensor {sensorID}");
+            }
         }
 
         private static void AddSensors(Model m, JToken sensorData)
         {
-            throw new System.NotImplementedException();
+            var initTemp = (double)sensorData["t_init"];
+            var sensorID = (int)sensorData["id"];
+            for (int i = 0; i < sensorID; i++)
+            {
+                System.Console.WriteLine($"Successfully added sensor {sensorID} to the model. The sensor's initial temprature is {initTemp}");
+            }
         }
 
         private static Model GetModel(Material material, JToken settingsData)
         {
-            throw new System.NotImplementedException();
+            var highTemp = (double)settingsData["high_temp"];
+            var lowTemp = (double)settingsData["low_temp"];
+            var simTime = (double)settingsData["sim_time"];
+            return new Model(material, highTemp,lowTemp,simTime);
         }
 
         private static Material GetMaterial(JToken materialData)
@@ -64,13 +79,12 @@ namespace Lab7.IOManagers
 
         private static RelaxationData GetRelaxationData(JToken rData)
         {
-            var Bl = (double)rData["Bl"];
-            var Btn = (double)rData["Btn"];
-            var Btu = (double)rData["Btu"];
-            var BI = (double)rData["BI"];
-            var W = (double)rData["W"];
+            var Bl = (double)rData["b_l"];
+            var Btn = (double)rData["b_tn"];
+            var Btu = (double)rData["b_tu"];
+            var BI = (double)rData["b_i"];
+            var W = (double)rData["w"];
             return new RelaxationData(Bl, Btn, Btu, BI, W);
         }
-        
     }
 }
